@@ -1,0 +1,93 @@
+* {padding: 0;margin: 0;}
+#wrapper {
+				position: relative;
+				/* margin: 50px auto; */
+				margin-top: 30px;
+				margin-right: 40px;
+				padding: 0;
+				width: 240px;
+				height: 160px;
+				float: right;
+}
+#wrapper .content {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+}
+#wrapper>.content>.imgs {
+				position: absolute;
+				margin: 0;
+				padding: 0;
+				left: 0;
+				top: 0;
+				width: 1440px;
+				/*多留出一张图片的宽度！*/
+				list-style: none;
+}
+#wrapper>.content>.imgs li {
+				float: left;
+				margin: 0;
+				padding: 0;
+				width: 240px;
+				height: 160px;
+}
+#wrapper>.content>.imgs>li img {
+				width: 100%;
+				height: 100%;
+}
+#wrapper>.content>.dots {
+				width: 160px;
+				position: absolute;
+				right: 0;
+				left: 0;
+				margin: auto;
+				bottom: 10px;
+				list-style: none;
+				text-align: center;
+
+				display:inline;
+}
+#wrapper>.content>.dots li {
+				float: left;
+				width: 15px;
+				height: 15px;
+				text-align: center;
+				line-height: 20px;
+				border-radius: 50%;
+				margin-left: 10px;
+				cursor: pointer;
+}
+li.active {
+				background-color: white;
+}
+li.quiet {
+				background-color: #5a5a58;
+}
+.btns {
+				display: none;
+}
+.btns span {
+				position: absolute;
+				width: 25px;
+				height: 40px;
+				top: 50%;
+				margin-top: -20px;
+				line-height: 40px;
+				text-align: center;
+				font-weight: bold;
+				font-family: Simsun;
+				font-size: 30px;
+				border: 1px solid #fff;
+				opacity: 0.5;
+				cursor: pointer;
+				color: #fff;
+				background: black;
+}
+.btns .left {
+				left: 5px;
+}
+.btns .right {
+				left: 100%;
+				margin-left: -32px;
+}

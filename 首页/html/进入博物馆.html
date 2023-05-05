@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进入博物馆</title>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=f4a44a95dce31e36e1406a55116a5387"></script>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/c/font_3926690_oks7h1u5p0k.css">
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+        
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+        
+        #container {
+            height: 100%
+        }
+        .amap-icon img {
+            width: 20px;
+            height: 19px;
+            color:#000;
+        }
+        a:link,a:visited{
+            text-decoration: none;
+            color:black;
+        }
+        .content-window-card {
+            position: relative;
+            box-shadow: none;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            padding: 0;
+        }
+
+        .content-window-card p {
+            height: 2rem;
+        }
+
+        .custom-info {
+            border: solid 1px silver;
+        }
+
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+
+        div.info-middle {
+            font-size: 12px;
+            padding: 10px 6px;
+            line-height: 20px;
+        }
+
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+
+        span {
+            margin-left: 5px;
+            font-size: 11px;
+        }
+
+        .info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
+
+</style>
+</head>
+
+<body>
+
+    <div id="container"></div>
+    
+    <script type="text/javascript">
+         var map = new AMap.Map('container',
+          {zoom:19.1,
+            rotateEnable: false,
+            pitchEnable: false,
+            viewMode: '3D' ,
+          pitch:75,
+          //wallColor: "green",	// 地图楼快的侧面颜色
+          roofColor: 'pink',	// 地图楼快的顶面颜色
+          rotation: 205,
+          center: [114.365715,30.561403],
+        });
+//添加marker标记 
+//曾侯乙展厅(一)114.366450,30.560630 越王勾践剑展厅114.365789,30.560640  
+// 曾世家展厅114.365320,30.5602   曾侯乙展厅(二)114.3664,30.5605   楚国八百年展厅114.365422,30.560243 
+//  梁庄王展厅114.366260,30.560799
+addMarker();
+function addMarker() {
+    var marker1 = new AMap.Marker({
+        map: map,
+        position: [114.366680,30.560330],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker1.on('click', function () {
+        infoWindow1.open(map, marker1.getPosition());
+    });
+
+    var marker2 = new AMap.Marker({
+        map: map,
+        position: [114.365856,30.560430],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker2.on('click', function () {
+        infoWindow2.open(map, marker2.getPosition());
+    });
+
+    var marker3 = new AMap.Marker({
+        map: map,
+        position: [114.365440,30.5599],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker3.on('click', function () {
+        infoWindow3.open(map, marker3.getPosition());
+    });
+
+    var marker4 = new AMap.Marker({
+        map: map,
+        position: [114.365590,30.559800],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker4.on('click', function () {
+        infoWindow4.open(map, marker4.getPosition());
+    });
+
+    var marker5 = new AMap.Marker({
+        map: map,
+        position: [114.366359,30.560390],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker5.on('click', function () {
+        infoWindow5.open(map, marker5.getPosition());
+    });
+
+    var marker6 = new AMap.Marker({
+        map: map,
+        position: [114.366799,30.5605],
+        icon: '../images/地点.png'
+    });
+    //鼠标点击marker弹出自定义的信息窗体
+    marker6.on('click', function () {
+        infoWindow6.open(map, marker6.getPosition());
+    });
+}
+
+    //实例化信息窗体1
+var title1 = '<a href="../../展厅浏览/html/曾侯乙展厅信息.html">曾侯乙展厅（一）</a>',
+    content1 = [];
+content1.push("位置：文展大厅1楼");
+content1.push("曾侯乙编钟、曾侯乙尊盘、彩漆木雕梅花鹿");
+var infoWindow1 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title1, content1.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+    //实例化信息窗体2
+var title2 ='<a href="../../展厅浏览/html/越王勾践剑展厅信息.html">越王勾践剑展厅</a>',
+    content2 = [];
+content2.push("位置：文展大厅2楼");
+content2.push("越王勾践剑");
+var infoWindow2 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title2, content2.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+    //实例化信息窗体3
+var title3 = '<a href="../../展厅浏览/html/曾世家展厅信息.html">曾世家展厅</a>',
+    content3 = [];
+content3.push("位置：文展大厅2楼");
+content3.push("曾侯谏铜盉、曾侯舆钟、曾仲斿父壶");
+var infoWindow3 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title3, content3.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+    //实例化信息窗体4
+var title4 = '<a href="../../展厅浏览/html/楚国八百年展厅信息.html">楚国八百年展厅</a>',
+    content4 = [];
+content4.push("位置：文展大厅3楼");
+content4.push("虎座鸟架鼓、战国鳊鱼、凤鸟双联杯");
+var infoWindow4 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title4, content4.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+    //实例化信息窗体5
+var title5 = '<a href="../../展厅浏览/html/梁庄王展厅信息.html">梁庄王展厅</a>',
+    content5 = [];
+content5.push("位置：文展大厅3楼");
+content5.push("金凤簪、青白玉镂空东升图环饰");
+var infoWindow5 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title5, content5.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+    //实例化信息窗体6
+var title6 = '<a href="../../展厅浏览/html/曾侯乙展厅信息.html">曾侯乙展厅（二）</a>',
+    content6 = [];
+content6.push("位置：文展大厅2楼");
+content6.push("铜鹿角立鹤、彩漆木雕鸳鸯型彩盒");
+var infoWindow6 = new AMap.InfoWindow({
+    isCustom: true,  //使用自定义窗体
+    content: createInfoWindow(title6, content6.join("<br/>")),
+    offset: new AMap.Pixel(20, -20)
+});
+
+//构建自定义信息窗体
+function createInfoWindow(title, content) {
+    var info = document.createElement("div");
+    info.className = "custom-info input-card content-window-card";
+
+    //可以通过下面的方式修改自定义窗体的宽高
+    info.style.width = "300px";
+    // 定义顶部标题
+    var top = document.createElement("div");
+    var titleD = document.createElement("div");
+    var closeX = document.createElement("img");
+    top.className = "info-top";
+    titleD.innerHTML = title;
+    closeX.src = "https://webapi.amap.com/images/close2.gif";
+    closeX.onclick = closeInfoWindow;
+
+    top.appendChild(titleD);
+    top.appendChild(closeX);
+    info.appendChild(top);
+
+    // 定义中部内容
+    var middle = document.createElement("div");
+    middle.className = "info-middle";
+    middle.style.backgroundColor = 'white';
+    middle.innerHTML = content;
+    info.appendChild(middle);
+
+    // 定义底部内容
+    var bottom = document.createElement("div");
+    bottom.className = "info-bottom";
+    bottom.style.position = 'relative';
+    bottom.style.top = '0px';
+    bottom.style.margin = '0 auto';
+    var sharp = document.createElement("img");
+    sharp.src = "https://webapi.amap.com/images/sharp.png";
+    bottom.appendChild(sharp);
+    info.appendChild(bottom);
+    return info;
+}
+
+//关闭信息窗体
+function closeInfoWindow() {
+    map.clearInfoWindow();
+}
+</script>
+</body>
+</html>
+
+<!-- 114.365416,30.560182     114.36591,30.562464       北门:114.36455,30.563078 -->

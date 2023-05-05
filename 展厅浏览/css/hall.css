@@ -1,0 +1,46 @@
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(../images/bg2.png);
+    background-size: cover;
+}
+.shell{
+    width: 90%;
+    height: 500px;
+    margin: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+.box{
+    flex: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+    border-radius: 20px;
+    border: 10px solid #fff;
+    background-color: #fff;
+}
+.box>a>img{
+    width: 200%;
+    height: 90%;
+    object-fit: cover;
+    transition: .5s;
+}
+.box>span{
+    font: 20px 'Microsoft YaHei', 'Heiti SC', tahoma, arial, 'Hiragino Sans GB', \\5B8B\4F53, sans-serif;
+    text-align: center;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box:hover{
+    flex-basis: 40%;
+}
+.box:hover>a>img{
+    width: 100%;
+    height: 100%;
+}

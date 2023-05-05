@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文物信息_曾侯乙编钟</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/carousel.css">
+</head>
+<body>
+    <div class="head">
+        <h1>曾侯乙编钟</h1>
+        <h2>国家一级文物</h2>
+    </div>
+    <div class="image">
+        <img src="../images/曾侯乙编钟.jpg">
+    </div>
+    <br><button id="button-1">文物简介</button>
+	<p class="p1">           战国曾侯乙编钟是战国早期曾国国君的一套大型礼乐重器，国家一级文物，
+		1978年在湖北随县（今随州）擂鼓墩曾侯乙墓出土，现藏于湖北省博物馆，为该馆“镇馆之宝”。</p>
+    <p class="p1">           曾侯乙编钟是中国首批禁止出国(境)展览文物。它是由六十五件青铜编钟组成的庞大的乐器，
+		其音域跨五个半八度，十二个半音齐备。它高超的铸造技术和良好的音乐性能，
+		改写了世界音乐史，被中外专家、学者称之为"稀世珍宝"。</p>
+    <div id="wrapper">
+        <div class="content">
+            <ul class="imgs">
+                <li><img src="../images/曾侯乙编钟1.jpeg" /></li>
+                <li><img src="../images/曾侯乙编钟2.jpeg" /></li>
+                <li><img src="../images/曾侯乙编钟3.jpeg" /></li>
+                <li><img src="../images/曾侯乙编钟4.png" /></li>
+                <li><img src="../images/曾侯乙编钟5.jpeg" /></li>
+				<li><img src="../images/曾侯乙编钟6.jpeg" /></li>
+            </ul>
+            <ul class='dots'></ul>
+        </div>
+        <div class="btns">
+            <span class="left">&lt;</span>
+            <span class="right">&gt;</span>
+        </div>
+    </div>
+    <button>文物特征</button>
+    <div class="text">
+        <p class="p2">         曾侯乙编钟高273厘米、宽335厘米，架长748厘米，最大者通高153.4厘米，重203.6千克，最小者通高20.4厘米，
+			重2.4千克。钟体总重2567公斤，加上钟架（含挂钩）铜质部分，合计4421.48千克。</p>
+		<p class="p2">         曾侯乙编钟的钟架高大，由长短不同的两堵立面垂直相交，呈曲尺形7根彩绘木梁两端以蟠龙纹铜套加固，
+			由6个佩剑武士形铜柱和8根圆柱承托，构成上、中、下三层。钟架及挂钩（含可以拆装的构件）达246个。</p>
+		<p class="p2">         此套编钟共计六十五件，分三层八组悬挂在钟架上：上层3组为钮钟，19件，立柱是圆木；中层3组为甬钟，33件，
+			分短枚、无枚、长枚三式；下层为两组大型长枚甬钟，12件，另有大镈钟1件。中、下两层的立柱，
+			每层都为三个铜质佩剑武士。钟架可以拆装。钟笋、钟钩、钟体共有铭文三千七百五十五字，
+			内容有编号、铭记、标音及乐律。</p>
+    </div>
+    <div class="click-more">
+        <div id="a2"></div>
+        <a href="../../流传历史/html/编钟.html">点击了解该文物相关历史故事</a>
+    </div>
+    <div class="back">
+		<button class="btn-back"><a href="../文物信息首页.html">返回文物信息首页</a></button>
+        <button class="btn-back"><a href="../../流传历史/流传历史首页.html">返回流传历史首页</a></button>
+    </div>
+</body>
+</html>
+<script>
+	var wrapper = document.getElementById("wrapper");
+	var imgs = document.getElementsByClassName("imgs")[0];
+	var dots = document.getElementsByClassName("dots")[0];
+	var btns = document.getElementsByClassName("btns")[0];
+	var dotss = dots.children;
+	var len = imgs.children.length; //图片张数
+	var width = wrapper.offsetWidth; //每张图片的宽度
+	var rate = 15; //一张图片的切换速度， 单位为px
+	var times = 1; //切换速度的倍率
+	var timer = null; //初始化一个定时器
+	var imgSub = 0; //当前显示的图片下标
+	var dotSub = 0; //当前显示图片的小圆点下标
+	var temp;
+	// 创建一个文档片段，此时还没有插入到 DOM 结构中
+	const frag = document.createDocumentFragment()
+	// 根据图片数量添加相应的小圆点到文档片段中
+	for (let i = 0; i < len; i++) {
+		const dot = document.createElement("li");
+		dot.className = 'quiet';
+		// 先插入文档片段中
+		frag.appendChild(dot);
+	}
+	// 将小圆点片段统一插入到 DOM 结构中
+	dots.appendChild(frag)
+	// 第一个小圆点高亮显示
+	dots.children[0].className = "active";
+	// 滑动函数
+	function Roll(distance) { //参数distance：滚动的目标点（必为图片宽度的倍数）
+		clearInterval(imgs.timer); //每次运行该函数必须清除之前的定时器！
+		//判断图片移动的方向
+		var speed = imgs.offsetLeft < distance ? rate : (0 - rate);
+		//设置定时器，每隔10毫秒，调用一次该匿名函数
+		imgs.timer = setInterval(function() {
+			//每一次调用滚动到的地方 (速度为 speed px/10 ms)         
+			imgs.style.left = imgs.offsetLeft + speed + "px";
+			//距目标点剩余的px值      
+			var leave = distance - imgs.offsetLeft;
+			/*接近目标点时的处理，滚动接近目标时直接到达， 避免rate值设置不当时不能完整显示图片*/
+			if (Math.abs(leave) <= Math.abs(speed)) {
+				clearInterval(imgs.timer);
+				imgs.style.left = distance + "px";
+			}
+		}, 10);
+	}
+	/*克隆第一个li到列表末*/
+	imgs.appendChild(imgs.children[0].cloneNode(true));
+	function autoRun() {
+		imgSub++;
+		dotSub++;
+		if (imgSub > len) { //滚动完克隆项后
+			imgs.style.left = 0; //改变left至真正的第一项处
+			imgSub = 1; //从第二张开始显示
+		}
+		// 调用滚动函数，参数为该下标的滚动距离
+		Roll(-imgSub * width);
+		// 如果圆点下标已滚动到最后，则将下标重置为0
+		if (dotSub > len - 1) { //判断是否到了最后一个圆点
+			dotSub = 0;
+		}
+		// 循环修改所有圆点默认样式
+		for (var i = 0; i < len; i++) {
+			dotss[i].className = "quiet";
+		}
+		// 给当前滚动到的圆点添加高亮样式
+		dotss[dotSub].className = "active";
+	}
+	// 创建定时器，开始自动滚动
+	timer = setInterval(autoRun,2000);
+	// 循环添加小圆点的触发事件
+	for (var i = 0; i < len; i++) {
+		dotss[i].index = i;
+		dotss[i].onmouseover = function() {
+			for (var j = 0; j < len; j++) {
+				dotss[j].className = "quiet";
+			}
+			this.className = "active";
+			temp = dotSub;
+			imgSub = dotSub = this.index;
+			times = Math.abs(this.index - temp); //距离上个小圆点的距离
+			rate = rate * times; //根据距离改变切换速率
+			Roll(-this.index * width);
+			rate = 15;
+		}
+	}
+	// 添加事件：鼠标移动到wrapper上，左右切换按钮显示
+	wrapper.onmouseover = function() {
+		clearInterval(timer);
+		btns.style.display = 'block';
+	}
+	// 添加事件：鼠标移出wrapper，左右切换按钮隐藏
+	wrapper.onmouseout = function() {
+		timer = setInterval(autoRun,2000);
+		btns.style.display = 'none';
+	}
+	// 点击上一张按钮 触发事件
+	btns.children[0].onclick = function() {
+		imgSub--;
+		dotSub--;
+		if (imgSub < 0) { //滚动完第一项后
+			imgs.style.left = -len * width + "px"; //改变left至克隆的第一项处
+			imgSub = dotSub = len - 1;
+		}
+		Roll(-imgSub * width);
+		if (dotSub < 0) {
+			dotSub = len - 1;
+		}
+		for (var i = 0; i < len; i++) {
+			dotss[i].className = "quiet";
+		}
+		dotss[dotSub].className = "active";
+	}
+	// 点击下一张按钮 触发事件
+	btns.children[1].onclick = autoRun;
+</script>

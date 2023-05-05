@@ -1,0 +1,81 @@
+:root {
+    --w: 470px; 
+    --h: 500px; 
+}
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url(../images/bg2.png);
+    background-size: cover;
+}
+
+#qianyanbook {
+    padding-top: 60px;
+    height: var(--h);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    perspective: 1600px;
+    transform-style: preserve-3d;
+}
+.book-cover {
+    /* 封面比页面每条边宽25px */
+    height: calc(var(--h) + 50px);
+    width: calc(var(--w) + 50px);
+    position: absolute;
+    background-image: url(../images/cv1.png);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 1s;
+    transform-origin: left;
+    backface-visibility: visible;
+    border: .5px solid black;
+}
+.book-content {
+    height: var(--h);
+    width: var(--w);
+    position: absolute;
+    z-index: 100;
+    transition: 1s;
+    /* 封面比页面每条边宽的长度 */
+    transform-origin: -25px;
+    background-size: cover;
+    backface-visibility: visible;
+}
+
+#control {
+    margin-top: 60px;
+    user-select: none;
+}
+#control button {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border: 0;
+    margin: 0px 15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgba(63,63,63,.8);
+    outline: none;
+}
+#returnBox a {
+    text-decoration: none;
+    position:absolute;
+    right: 10%;
+    color: #00e3d8;
+    cursor: pointer;
+    z-index: 1030;
+    letter-spacing: 3px;
+    font-weight: 600;
+    font-family: 'Londrina Sketch';
+    text-shadow: 0 0 5px black;
+    font-size: calc(2vw + 3px);
+    }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <script type="text/javascript" src="./首页/js/jquery-3.6.4.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="http://at.alicdn.com/t/c/font_3926690_ywg3gliqvob.css">
+    <link href="./首页/css/daohang.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+
+    .zong{
+            position:relative;
+            display: table;
+            width: 400px;
+            height: 200px;
+            border-width:1px;
+            border-style:solid;
+            border-color:gray;
+            border-radius: 30px 30px 30px 30px;
+            line-height:1.5em;
+            display: none; 
+            margin: auto;
+            margin-top: 370px;
+            background:-webkit-linear-gradient( top,rgba(255,191,107,0.7),rgba(255,191,107,0));
+        }
+        .kuang{
+            position: absolute;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            top: 30%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+
+        }
+        a{
+            font-size: 20px;
+            line-height:3.0em;
+            display: block;
+        }
+        #xk2{
+            border-width:1px;
+            border-style:solid;
+            border-color:gray;
+            border-radius: 15px 15px 15px 15px;
+            width:250px;
+            margin:10px auto;
+            background-color: rgba(244,206,152,0.7);
+        }
+
+        body{
+            background-image: url("./首页/images/bg1.png");
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        #start{
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            background-color: Transparent; 
+            border-style: none;     
+            outline: none;     
+            font-weight: bold;
+            font-size: 40px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:silver
+        }
+
+        #xk1{
+            font-size: 20px;
+        }
+        a:link,a:visited{
+            text-decoration: none;
+            color:black;                     
+        }
+
+    </style>
+    <script>
+$(document).ready(function(){
+  $("#start").click(function(){
+    $(".zong").fadeIn(2000);
+  });
+});
+    </script>
+</head>
+<body>
+    <div class="menu">  <!-- class选择器 -->
+        <div class="nav">
+            <ul>    <!-- ul标签 -->
+                <li><a class="iconfont icon-shouye" href="./index.html">&nbsp&nbsp首页</a></li>
+                <li><a class="iconfont icon-gongxiangzhanting" href="./展厅浏览/展厅首页.html">&nbsp&nbsp展厅浏览</a></li>
+                <li><a class="iconfont icon-xinxi" href="./文物信息/文物信息首页.html">&nbsp&nbsp文物信息</a></li>
+                <li><a class="iconfont icon-shijian" href="./流传历史/流传历史首页.html">&nbsp&nbsp流传历史</a></li>
+                <li><a class="iconfont icon-zhishiwenda" href="./知多少/首页.html">&nbsp&nbsp知多少</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="zong">
+    <div class="kuang">
+    <a id="xk2" href="./首页/html/进入博物馆.html">进入博物馆</a>
+    </div>
+</div>    
+<button id="start">start</button>
+</body>
+</html>

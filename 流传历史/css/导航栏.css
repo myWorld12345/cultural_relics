@@ -1,0 +1,49 @@
+body{
+    margin: 0px; 
+}
+ .menu{
+margin-top: 0px;
+margin-left: 0px;
+margin-right: 0px;
+height:40px;
+}
+ul
+{   text-align:center;	
+   list-style-type:none; /* ul前面的点  */
+  
+  
+   margin:0px 0px;     /* 到边框的距离 */
+}
+
+.menu
+{
+   background:#a49a95; /* 导航条背景的颜色  */ 
+   width: 100%;
+}
+.nav
+{
+   margin:0; 	/* 导航栏文字的位置  */
+   width:auto; 	/* 和文字宽度有关，不能小于文字宽度的总和  */
+   height:40px; 	/* 导航栏的宽度  */
+}
+.nav a
+{   
+   margin-left: 55px;
+   float:left;				 /* 导航栏的位置配置 */
+   width:190px;			 /* 选中的文字块的长度  */
+   line-height:40px; 		         /* 选中的文字块的宽度  */
+   text-decoration: none;               /* 去掉连接下划线  */
+   font-size:20px;			 /* 字体大小 */
+   color: black;			 /* 字体颜色 */
+}
+.nav li a:hover
+{
+   background-color: #D8D8D8;	        /* 选中的文字块的颜色 */
+   text-decoration:none;		/* 选中时去掉连接下划线 */	
+}
+.nav li {
+   text-decoration:none; /* 连接被点之后没有下划线  */
+} 
+/* .nav li a:link{
+   text-decoration:none; /* 连接被点之后没有下划线  */
+
